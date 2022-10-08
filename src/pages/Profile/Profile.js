@@ -1,9 +1,16 @@
 import React from 'react';
-import { NavLink, Outlet, useParams, useSearchParams } from 'react-router-dom';
+import {
+  NavLink,
+  Outlet,
+  useParams,
+  useSearchParams,
+  useOutletContext,
+} from 'react-router-dom';
 
 export default function Profile() {
   const { id } = useParams();
   const [queryParams, setQueryParams] = useSearchParams();
+  const user = useOutletContext();
 
   return (
     <>

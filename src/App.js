@@ -1,11 +1,17 @@
 import React, { useEffect } from 'react';
 import Footer from './components/Footer/Footer';
 import Header from './components/Header/Header';
-import { Outlet, ScrollRestoration, useNavigation } from 'react-router-dom';
+import {
+  Outlet,
+  ScrollRestoration,
+  useNavigation,
+  useLoaderData,
+} from 'react-router-dom';
 import styles from './App.module.scss';
 
 function App() {
   const navigation = useNavigation();
+  const user = useLoaderData();
 
   useEffect(() => {
     console.log(navigation);
@@ -21,7 +27,7 @@ function App() {
         </h1>
       )}
       <div className="flex-fill">
-        <Outlet />
+        <Outlet context={user} />
       </div>
       <Footer />
       <ScrollRestoration />
